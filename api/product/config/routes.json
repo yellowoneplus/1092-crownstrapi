@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/shop/overview",
+      "handler": "product.shopOverviewPage",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/shop/:category",
       "handler": "product.categoryPage",
       "config": {

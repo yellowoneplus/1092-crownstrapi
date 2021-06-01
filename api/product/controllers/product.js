@@ -31,4 +31,24 @@ module.exports = {
       title: ctx.params.category,
     });
   },
+  shopOverviewPage: async (ctx) => {
+    let data = {};
+    try {
+        const entities = await strapi.services.category.find();
+        data.hats = entities[0].products;
+        data.jackets = entities[1].products;
+        data.sneakers = entities[2].products;
+        data.womens = entities[3].products;
+        data.mens = entities[4].products;
+        console.log("data.mens", JSON.stringify(data.mens));
+        return await ctx.render("shopOverview2_xx", {
+            data,
+            title: "Shop Overview",
+            count: 4,
+        });
+      }catch (err) {
+          console.log(err);
+      }
+
+    }
 };
